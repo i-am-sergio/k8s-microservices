@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-mcsv
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth-mcsv
+  template:
+    metadata:
+      labels:
+        app: auth-mcsv
+    spec:
+      containers:
+        - name: auth-mcsv
+          image: auth-mcsv:latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: DB_HOST
+              value: "auth-mysql"
+            - name: DB_USER
+              value: "root"
+            - name: DB_PASS
+              value: "root"
+            - name: DB_NAME
+              value: "authdb"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-mcsv
+spec:
+  selector:
+    app: auth-mcsv
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+  type: NodePort
