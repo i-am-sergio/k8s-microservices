@@ -226,3 +226,9 @@ minikube service frontend-service
 2. El **frontend** consume los endpoints REST de **products-mcsv** y **auth-mcsv**.
 3. Ambos microservicios se comunican con sus propias bases de datos MySQL.
 4. Kubernetes gestiona la escalabilidad y disponibilidad de los Pods.
+
+
+
+![alt text](.img/image.png)
+
+![alt text](.img/workers_ready.png)

@@ -12,19 +12,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql
+  name: products-mysql 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mysql
+      app: products-mysql
   template:
     metadata:
       labels:
-        app: mysql
+        app: products-mysql 
     spec:
       containers:
-        - name: mysql
+        - name: products-mysql 
           image: mysql:8
           env:
             - name: MYSQL_ROOT_PASSWORD
@@ -44,10 +44,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql
+  name: products-mysql
 spec:
   selector:
-    app: mysql
+    app: products-mysql 
   ports:
     - protocol: TCP
       port: 3306

@@ -29,3 +29,8 @@ kubectl apply -f k8s/frontend-deployment.yaml
 # Exponer temporalemente puertos
 kubectl port-forward svc/auth-mysql 3307:3306
 kubectl port-forward svc/mysql 3306:3306
+
+
+# Monitoring 
+kubectl get pods
+kubectl get services
